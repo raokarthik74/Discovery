@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "Service.h"
+#import "DidGetResponse.h"
+
+@class NetworkConfig;
 
 @interface NetworkConfig : NSObject
 
-+(void)doPost:(NSString*)url withParameters:(NSDictionary*)parameters forService:(Service*)service;
-+(void)doGet:(NSString*)url forService:(Service*)service;
+@property(nonatomic, weak) id<DidGetResponse> delegate;
+
+-(void)doPost:(NSString*)url withParameters:(NSDictionary*)parameters;
+-(void)doGet:(NSString*)url;
 
 @end

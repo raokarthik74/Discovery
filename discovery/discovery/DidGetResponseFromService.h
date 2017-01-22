@@ -10,6 +10,6 @@
 
 @protocol DidGetResponseFromService <NSObject>
 
--(void)didGetResponseFromService:(Event*)event;
+-(void)didGetResponseFromService:(EventModel*)eventModel;
 
 @end

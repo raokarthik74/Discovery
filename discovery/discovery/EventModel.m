@@ -18,18 +18,6 @@
     return self;
 }
 
-+ (instancetype) sharedModel
-{
-    static EventModel *_sharedModel = nil;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedModel = [[self alloc]init];
-    });
-    
-    return _sharedModel;
-}
-
 -(NSUInteger)numberOfEvents{
     return [self.eventArray count];
 }

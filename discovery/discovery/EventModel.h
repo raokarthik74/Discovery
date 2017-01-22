@@ -17,6 +17,5 @@
 -(Event*)eventAtIndex:(NSUInteger)index;
 -(void) insertEventWithPictureUrl:(NSString*) pictureUrl eventTitle:(NSString*)eventTitle andOnClickUrl:(NSString*)onClickUrl;
 -(void) insertEventIntoModel:(Event*)event;
-+ (instancetype) sharedModel;
 
 @end

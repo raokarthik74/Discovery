@@ -10,7 +10,9 @@
 
 @implementation NetworkConfig
 
-+(void)doGet:(NSString*)url forService:(Service*)service{
+@synthesize delegate;
+
+-(void)doGet:(NSString*)url{
     NSDictionary *headers = @{ @"content-type": @"application/json",
                                @"cache-control": @"no-cache"};
     
@@ -28,14 +30,14 @@
                                                     } else {
                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
                                                         NSLog(@"%@", httpResponse);
-                                                        [service didGetResponse:data];
+                                                        [self.delegate didGetResponse:data];
                                                     }
                                                 }];
     [dataTask resume];
 
 }
 
-+(void)doPost:(NSString*)url withParameters:(NSDictionary*)parameters forService:(Service*)service{
+-(void)doPost:(NSString*)url withParameters:(NSDictionary*)parameters{
     NSDictionary *headers = @{ @"content-type": @"application/json",
                                @"cache-control": @"no-cache"};
     
@@ -56,7 +58,7 @@
                                                     } else {
                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
                                                         NSLog(@"%@", httpResponse);
-                                                        [service didGetResponse:data];
+                                                        [self.delegate didGetResponse:data];
                                                     }
                                                 }];
     [dataTask resume];

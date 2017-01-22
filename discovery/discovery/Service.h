@@ -11,10 +11,15 @@
 #import "EventModel.h"
 #import "NetworkConfig.h"
 #import "TableViewController.h"
+#import "DidGetResponseFromService.h"
+
+@class Service;
 
 @interface Service : NSObject <DidGetResponse>
 
--(void)getAllNearbyEvents:(TableViewController*)tableViewController;
+@property(nonatomic, weak) id<DidGetResponseFromService> serviceDelegete;
+
+-(void)getAllNearbyEvents;
 
 
 @end

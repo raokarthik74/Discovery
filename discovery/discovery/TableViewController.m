@@ -19,7 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     Service* service = [[Service alloc]init];
-    [service getAllNearbyEvents:self];
+    service.serviceDelegete = self;
+    [service getAllNearbyEvents];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,9 +43,9 @@
     return 10;
 }
 
--(void)didGetResponseFromService:(Event*)event{
-    self.eventModel = [EventModel sharedModel];
-    [self.eventModel insertEventIntoModel:event];
+-(void)didGetResponseFromService:(EventModel*)eventModel{
+    Event* event = [eventModel eventAtIndex:0];
+    NSLog(@"Event Title %@", event.eventTitle);
 }
 
 

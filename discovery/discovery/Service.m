@@ -8,19 +8,17 @@
 
 #import "Service.h"
 
-@interface Service()
-
-@property(strong, nonatomic) Event* event;
-
-@end
-
 
 @implementation Service
 
--(void)getAllNearbyEvents:(TableViewController*)tableViewController{
-    [NetworkConfig doGet:@"https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=J59NpU6LWbdYZETInu5F9UXB6boP2vcS" forService:self];
-    [tableViewController didGetResponseFromService:self.event];
+@synthesize serviceDelegete;
+
+-(void)getAllNearbyEvents{
+    NetworkConfig* networkConfig = [[NetworkConfig alloc]init];
+    networkConfig.delegate = self;
+    [networkConfig doGet:@"https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=J59NpU6LWbdYZETInu5F9UXB6boP2vcS"];
 }
+
 
 -(void)didGetResponse:(NSData*)data{
     NSDictionary *dictObject = [NSJSONSerialization JSONObjectWithData:data
@@ -42,7 +40,10 @@
     dataArray = [dictObject objectForKey:@"images"];
     dictObject = [dataArray objectAtIndex:4];
     NSString* imageUrl = [dictObject objectForKey:@"url"];
-    self.event = [[Event alloc]initWithPictureUrl:imageUrl eventTitle:name andOnClickUrl:url];
+    Event* event = [[Event alloc]initWithPictureUrl:imageUrl eventTitle:name andOnClickUrl:url];
+    EventModel *eventModel = [[EventModel alloc]init];
+    [eventModel insertEventIntoModel:event];
+    [serviceDelegete didGetResponseFromService:eventModel];
 }
 
 @end
