@@ -10,12 +10,16 @@
 
 @interface TableViewController ()
 
+@property(strong, nonatomic)EventModel* eventModel;
+
 @end
 
 @implementation TableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    Service* service = [[Service alloc]init];
+    [service getAllNearbyEvents:self];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -29,7 +33,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -37,6 +40,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
+}
+
+-(void)didGetResponseFromService:(Event*)event{
+    self.eventModel = [EventModel sharedModel];
+    [self.eventModel insertEventIntoModel:event];
 }
 
 

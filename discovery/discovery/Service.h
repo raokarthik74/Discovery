@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "DidGetResponse.h"
+#import "EventModel.h"
+#import "NetworkConfig.h"
+#import "TableViewController.h"
 
 @interface Service : NSObject <DidGetResponse>
 
+-(void)getAllNearbyEvents:(TableViewController*)tableViewController;
 
 
 @end

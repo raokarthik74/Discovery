@@ -10,7 +10,7 @@
 
 @implementation NetworkConfig
 
--(void)doGet:(NSString*)url{
++(void)doGet:(NSString*)url forService:(Service*)service{
     NSDictionary *headers = @{ @"content-type": @"application/json",
                                @"cache-control": @"no-cache"};
     
@@ -28,13 +28,14 @@
                                                     } else {
                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
                                                         NSLog(@"%@", httpResponse);
+                                                        [service didGetResponse:data];
                                                     }
                                                 }];
     [dataTask resume];
 
 }
 
--(void)doPost:(NSString*)url withParameters:(NSDictionary*)parameters{
++(void)doPost:(NSString*)url withParameters:(NSDictionary*)parameters forService:(Service*)service{
     NSDictionary *headers = @{ @"content-type": @"application/json",
                                @"cache-control": @"no-cache"};
     
@@ -55,6 +56,7 @@
                                                     } else {
                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
                                                         NSLog(@"%@", httpResponse);
+                                                        [service didGetResponse:data];
                                                     }
                                                 }];
     [dataTask resume];

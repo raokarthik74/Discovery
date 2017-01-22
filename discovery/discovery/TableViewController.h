@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Service.h"
+#import "DidGetResponseFromService.h"
+#import "EventModel.h"
 
-@interface TableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, DidGetResponseFromService>
 
 @end

@@ -17,6 +17,8 @@
 		25A0CC471E330EFB000D414A /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC461E330EFB000D414A /* TableViewController.m */; };
 		25A0CC4A1E3339A7000D414A /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC491E3339A7000D414A /* Service.m */; };
 		25A0CC531E334166000D414A /* NetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC521E334166000D414A /* NetworkConfig.m */; };
+		25A0CC5A1E342886000D414A /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC591E342886000D414A /* Event.m */; };
+		25A0CC5D1E34289F000D414A /* EventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC5C1E34289F000D414A /* EventModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2533B0081E3442610074D628 /* DidGetResponseFromService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DidGetResponseFromService.h; sourceTree = "<group>"; };
 		25A0CC0F1E330D0B000D414A /* discovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = discovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A0CC131E330D0B000D414A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25A0CC151E330D0B000D414A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +61,10 @@
 		25A0CC511E334166000D414A /* NetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConfig.h; sourceTree = "<group>"; };
 		25A0CC521E334166000D414A /* NetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkConfig.m; sourceTree = "<group>"; };
 		25A0CC541E342040000D414A /* DidGetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DidGetResponse.h; sourceTree = "<group>"; };
+		25A0CC581E342886000D414A /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		25A0CC591E342886000D414A /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		25A0CC5B1E34289F000D414A /* EventModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventModel.h; sourceTree = "<group>"; };
+		25A0CC5C1E34289F000D414A /* EventModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2533B0071E3442430074D628 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				25A0CC541E342040000D414A /* DidGetResponse.h */,
+				2533B0081E3442610074D628 /* DidGetResponseFromService.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		25A0CC061E330D0B000D414A = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +124,7 @@
 		25A0CC111E330D0B000D414A /* discovery */ = {
 			isa = PBXGroup;
 			children = (
+				2533B0071E3442430074D628 /* Protocols */,
 				25A0CC501E333E30000D414A /* NetworkConfig */,
 				25A0CC4F1E333CAD000D414A /* Service */,
 				25A0CC4E1E333C9A000D414A /* Application */,
@@ -156,6 +173,10 @@
 		25A0CC4C1E333BCD000D414A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25A0CC581E342886000D414A /* Event.h */,
+				25A0CC591E342886000D414A /* Event.m */,
+				25A0CC5B1E34289F000D414A /* EventModel.h */,
+				25A0CC5C1E34289F000D414A /* EventModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -196,7 +217,6 @@
 			children = (
 				25A0CC511E334166000D414A /* NetworkConfig.h */,
 				25A0CC521E334166000D414A /* NetworkConfig.m */,
-				25A0CC541E342040000D414A /* DidGetResponse.h */,
 			);
 			name = NetworkConfig;
 			sourceTree = "<group>";
@@ -337,11 +357,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25A0CC5A1E342886000D414A /* Event.m in Sources */,
 				25A0CC171E330D0B000D414A /* AppDelegate.m in Sources */,
 				25A0CC4A1E3339A7000D414A /* Service.m in Sources */,
 				25A0CC531E334166000D414A /* NetworkConfig.m in Sources */,
 				25A0CC141E330D0B000D414A /* main.m in Sources */,
 				25A0CC471E330EFB000D414A /* TableViewController.m in Sources */,
+				25A0CC5D1E34289F000D414A /* EventModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +601,7 @@
 				25A0CC3E1E330D0C000D414A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25A0CC3F1E330D0C000D414A /* Build configuration list for PBXNativeTarget "discoveryTests" */ = {
 			isa = XCConfigurationList;
@@ -587,6 +610,7 @@
 				25A0CC411E330D0C000D414A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25A0CC421E330D0C000D414A /* Build configuration list for PBXNativeTarget "discoveryUITests" */ = {
 			isa = XCConfigurationList;
@@ -595,6 +619,7 @@
 				25A0CC441E330D0C000D414A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

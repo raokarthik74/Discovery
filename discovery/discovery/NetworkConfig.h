@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Service.h"
 
 @interface NetworkConfig : NSObject
 
--(void)doPost:(NSString*)url withParameters:(NSDictionary*)parameters;
--(void)doGet:(NSString*)url;
++(void)doPost:(NSString*)url withParameters:(NSDictionary*)parameters forService:(Service*)service;
++(void)doGet:(NSString*)url forService:(Service*)service;
 
 @end

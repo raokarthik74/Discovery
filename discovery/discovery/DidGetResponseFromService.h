@@ -1,5 +1,5 @@
 //
-//  DidGetResponse.h
+//  DidGetResponseFromService.h
 //  discovery
 //
 //  Created by Karthik Rao on 1/21/17.
@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol DidGetResponse <NSObject>
+@protocol DidGetResponseFromService <NSObject>
 
--(void)didGetResponse:(NSData*)data;
+-(void)didGetResponseFromService:(Event*)event;
 
 @end
