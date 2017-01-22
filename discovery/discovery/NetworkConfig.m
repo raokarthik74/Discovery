@@ -21,7 +21,7 @@
                                                        timeoutInterval:10.0];
     [request setHTTPMethod:@"GET"];
     [request setAllHTTPHeaderFields:headers];
-    
+    __block id blockDelegate = delegate;
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -30,7 +30,7 @@
                                                     } else {
                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
                                                         NSLog(@"%@", httpResponse);
-                                                        [self.delegate didGetResponse:data];
+                                                        [blockDelegate didGetResponse:data];
                                                     }
                                                 }];
     [dataTask resume];
@@ -49,7 +49,7 @@
     [request setHTTPMethod:@"POST"];
     [request setAllHTTPHeaderFields:headers];
     [request setHTTPBody:postData];
-    
+    __block id blockDelegate = delegate;
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -58,7 +58,7 @@
                                                     } else {
                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
                                                         NSLog(@"%@", httpResponse);
-                                                        [self.delegate didGetResponse:data];
+                                                        [blockDelegate didGetResponse:data];
                                                     }
                                                 }];
     [dataTask resume];

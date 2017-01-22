@@ -11,6 +11,7 @@
 @interface TableViewController ()
 
 @property(strong, nonatomic)EventModel* eventModel;
+@property(strong, nonatomic)NSString* eventTitle;
 
 @end
 
@@ -46,11 +47,13 @@
 -(void)didGetResponseFromService:(EventModel*)eventModel{
     Event* event = [eventModel eventAtIndex:0];
     NSLog(@"Event Title %@", event.eventTitle);
+    self.eventTitle = event.eventTitle;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = @"Hello";
     return cell;
 }
 
