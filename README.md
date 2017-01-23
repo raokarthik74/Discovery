@@ -63,4 +63,4 @@ Dependency frameworks injected by Cocoapods
 
 **Disclaimer**
 
-"Ticketmaster", Ticketmaster logo and Ticketmaster API are copyrights of Ticketmaster®. The usage here is for educational/non commercial purposes. 
+"Ticketmaster", Ticketmaster logo and Ticketmaster API are copyrights of Ticketmaster®. The usage here is for educational/non-commercial purposes. 
