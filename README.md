@@ -57,7 +57,7 @@ Dependency frameworks injected by Cocoapods
 
 **Screenshots**
 
-![](http://www-scf.usc.edu/~raokarth/11.png)
-![](http://www-scf.usc.edu/~raokarth/22.png)
-![](http://www-scf.usc.edu/~raokarth/33.png)
+![](http://www-scf.usc.edu/~raokarth/1.png)
+![](http://www-scf.usc.edu/~raokarth/2.png)
+![](http://www-scf.usc.edu/~raokarth/3.png)
 
