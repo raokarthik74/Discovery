@@ -14,13 +14,15 @@
 @synthesize serviceDelegete;
 static int const size = 15;
 
+
+//get events from Ticketmaster Discovery API
 -(void)getAllNearbyEvents{
     NetworkConfig* networkConfig = [[NetworkConfig alloc]init];
     networkConfig.delegate = self;
     [networkConfig doGet:[NSString stringWithFormat:@"https://app.ticketmaster.com/discovery/v2/events.json?size=%d&apikey=J59NpU6LWbdYZETInu5F9UXB6boP2vcS", size]];
 }
 
-
+//Method to handle response from NetworkConfig
 -(void)didGetResponse:(NSData*)data{
     EventModel *eventModel = [[EventModel alloc]init];
     Event* event;
@@ -47,6 +49,8 @@ static int const size = 15;
         [serviceDelegete didGetResponseFromService:eventModel];
 }
 
+
+//To handle when there is any other response other than 200
 -(void)didNotGetResponse{
     [serviceDelegete noResponse];
 }

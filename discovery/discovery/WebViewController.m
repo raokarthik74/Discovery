@@ -28,11 +28,13 @@
     [super didReceiveMemoryWarning];
 }
 
+//when web view loads, stop the indicator
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.indicator setHidden:YES];
     [self.indicator stopAnimating];
 }
 
+//when back button is pressed, dismiss the view controller to return back to the table view controller
 - (IBAction)backButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

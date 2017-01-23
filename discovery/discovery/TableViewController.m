@@ -25,17 +25,18 @@
     [super didReceiveMemoryWarning];
 }
 
-
+//number of section in table view
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+//number of rows in each section. Here, it is number of events
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.eventModel numberOfEvents];
 }
 
 
-
+//data for each cell of table
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *cell = (TableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil)
@@ -52,7 +53,7 @@
     return cell;
 }
 
-
+//segue to next view controller
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"buySegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
@@ -62,6 +63,7 @@
     }
 }
 
+//handles case when each row is clicked upon
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"buySegue" sender:self];

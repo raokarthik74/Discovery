@@ -21,6 +21,7 @@
     // Configure the view for the selected state
 }
 
+//standard the dimenstion of the image
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(7.5,7.5,100,56);

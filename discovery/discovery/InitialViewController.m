@@ -29,7 +29,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+//initial view controller- segue to next view controller when all the data is obtained
 -(void)didGetResponseFromService:(EventModel*)eventModel{
     self.eventModel = eventModel;
     Event* event = [eventModel eventAtIndex:0];
@@ -37,6 +37,7 @@
     [self performSegueWithIdentifier:@"tableViewSegue" sender:self];
 }
 
+//handle case when there is no 200 response
 -(void)noResponse{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"I'm sorry, but something went wrong. Please try back in sometime" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action){}];
@@ -44,6 +45,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+//pass required data to next view controller
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"tableViewSegue"]) {
         TableViewController *controller = (TableViewController *)segue.destinationViewController;
