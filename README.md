@@ -55,7 +55,7 @@ Dependency frameworks injected by Cocoapods
 
 > **[SDWebImage :](https://github.com/rs/SDWebImage)** This library provides an async image downloader with cache support.
 
-**Screen shots of screen**
+**Screenshots**
 
 ![](http://www-scf.usc.edu/~raokarth/1.png)
 ![](http://www-scf.usc.edu/~raokarth/2.png)
