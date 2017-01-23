@@ -10,7 +10,6 @@
 
 @interface TableViewController ()
 
-@property(strong, nonatomic)EventModel* eventModel;
 @property(strong, nonatomic)NSString* eventTitle;
 
 @end
@@ -19,20 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Service* service = [[Service alloc]init];
-    service.serviceDelegete = self;
-    [service getAllNearbyEvents];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -41,65 +31,47 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [self.eventModel numberOfEvents];
 }
 
--(void)didGetResponseFromService:(EventModel*)eventModel{
-    Event* event = [eventModel eventAtIndex:0];
-    NSLog(@"Event Title %@", event.eventTitle);
-    self.eventTitle = event.eventTitle;
-}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = @"Hello";
+    Event* event = [[Event alloc]init];
+    event = [self.eventModel eventAtIndex:indexPath.row];
+    cell.textLabel.text = event.eventTitle;
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:event.pictureUrl]
+                 placeholderImage:[UIImage imageNamed:@"ticket.jpg"]
+                          options:SDWebImageRefreshCached];
+    CGSize itemSize = CGSizeMake(100, 56);
+    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+    [cell.imageView.image drawInRect:imageRect];
+    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return cell;
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"buySegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        WebViewController *controller = (WebViewController* )segue.destinationViewController;
+        controller.titlestr = [self.eventModel eventAtIndex:indexPath.row].eventTitle;
+        controller.url = [self.eventModel eventAtIndex:indexPath.row].onClickUrl;
+    }
 }
-*/
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"buySegue" sender:self];
+}
 @end
+
+
+
+
+
+
+

@@ -10,7 +10,6 @@
 #import "DidGetResponse.h"
 #import "EventModel.h"
 #import "NetworkConfig.h"
-#import "TableViewController.h"
 #import "DidGetResponseFromService.h"
 
 @class Service;

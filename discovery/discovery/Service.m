@@ -16,34 +16,38 @@
 -(void)getAllNearbyEvents{
     NetworkConfig* networkConfig = [[NetworkConfig alloc]init];
     networkConfig.delegate = self;
-    [networkConfig doGet:@"https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=J59NpU6LWbdYZETInu5F9UXB6boP2vcS"];
+    [networkConfig doGet:@"https://app.ticketmaster.com/discovery/v2/events.json?size=15&apikey=J59NpU6LWbdYZETInu5F9UXB6boP2vcS"];
 }
 
 
 -(void)didGetResponse:(NSData*)data{
-    NSDictionary *dictObject = [NSJSONSerialization JSONObjectWithData:data
+    EventModel *eventModel = [[EventModel alloc]init];
+    Event* event;
+    NSDictionary *mainDictObject = [NSJSONSerialization JSONObjectWithData:data
                                                                options:kNilOptions
                                                                  error:NULL];
-    dictObject = [dictObject objectForKey:@"_embedded"];
-    NSArray *dataArray = [dictObject objectForKey:@"events"];
-    dictObject = [dataArray objectAtIndex:0];
-    NSLog(@"dic %@", [dictObject objectForKey:@"name"]);
-    NSString* name = [dictObject objectForKey:@"name"];
-    NSString* url = [dictObject objectForKey:@"url"];
-    NSLog(@"url %@", url);
-    name = [name stringByAppendingString:@" "];
-    name = [name stringByAppendingString:[dictObject objectForKey:@"type"]];
-    name = [name stringByAppendingString:@" on "];
-    NSDictionary *dictTime = [dictObject objectForKey:@"dates"];
-    dictTime =  [dictTime objectForKey:@"start"];
-    name = [name stringByAppendingString:[dictTime objectForKey:@"localDate"]];
-    dataArray = [dictObject objectForKey:@"images"];
-    dictObject = [dataArray objectAtIndex:4];
-    NSString* imageUrl = [dictObject objectForKey:@"url"];
-    Event* event = [[Event alloc]initWithPictureUrl:imageUrl eventTitle:name andOnClickUrl:url];
-    EventModel *eventModel = [[EventModel alloc]init];
-    [eventModel insertEventIntoModel:event];
-    [serviceDelegete didGetResponseFromService:eventModel];
+    
+    for (int i=0; i<15; i++) {
+        NSDictionary* dictObject = [mainDictObject objectForKey:@"_embedded"];
+        NSArray *dataArray = [dictObject objectForKey:@"events"];
+        dictObject = [dataArray objectAtIndex:i];
+        NSLog(@"dic %@", [dictObject objectForKey:@"name"]);
+        NSString* name = [dictObject objectForKey:@"name"];
+        NSString* url = [dictObject objectForKey:@"url"];
+        NSLog(@"url %@", url);
+        name = [name stringByAppendingString:@" "];
+        name = [name stringByAppendingString:[dictObject objectForKey:@"type"]];
+//        name = [name stringByAppendingString:@" on "];
+//        NSDictionary *dictTime = [dictObject objectForKey:@"dates"];
+//        dictTime =  [dictTime objectForKey:@"start"];
+//        name = [name stringByAppendingString:[dictTime objectForKey:@"localDate"]];
+        dataArray = [dictObject objectForKey:@"images"];
+        NSDictionary* imageDictionary = [dataArray objectAtIndex:4];
+        NSString* imageUrl = [imageDictionary objectForKey:@"url"];
+        event = [[Event alloc]initWithPictureUrl:imageUrl eventTitle:name andOnClickUrl:url];
+        [eventModel insertEventIntoModel:event];
+    }
+        [serviceDelegete didGetResponseFromService:eventModel];
 }
 
 @end

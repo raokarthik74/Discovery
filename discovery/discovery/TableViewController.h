@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Service.h"
-#import "DidGetResponseFromService.h"
 #import "EventModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "WebViewController.h"
 
-@interface TableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, DidGetResponseFromService>
+@interface TableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
-
+@property(strong, nonatomic)EventModel *eventModel;
 
 @end
