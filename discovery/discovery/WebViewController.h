@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WebViewController : UIViewController
+@interface WebViewController : UIViewController <UIWebViewDelegate>
 
 - (IBAction)backButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navTitle;
 @property (strong, nonatomic) NSString* url;
 @property NSString* titlestr;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
 
 @end

@@ -22,24 +22,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="JBq-KR-KrJ">
-                                <rect key="frame" x="87" y="233" width="200" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="JBq-KR-KrJ">
+                                <rect key="frame" x="37" y="288" width="300" height="91"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Dgk-hl-H1X"/>
-                                    <constraint firstAttribute="width" constant="200" id="FAM-ob-mpb"/>
+                                    <constraint firstAttribute="width" constant="300" id="AoU-Nc-M8M"/>
+                                    <constraint firstAttribute="height" constant="91" id="v9o-l1-F3v"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="2o7-aC-bk9">
-                                <rect key="frame" x="177" y="433" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2o7-aC-bk9">
+                                <rect key="frame" x="177" y="387" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0078431372549019607" green="0.60392156862745094" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2o7-aC-bk9" firstAttribute="leading" secondItem="N6k-I1-qtP" secondAttribute="leadingMargin" constant="161" id="FBI-Ih-CI4"/>
-                            <constraint firstItem="JBq-KR-KrJ" firstAttribute="centerY" secondItem="N6k-I1-qtP" secondAttribute="centerY" id="Jy4-2G-mM7"/>
-                            <constraint firstItem="2o7-aC-bk9" firstAttribute="top" secondItem="JBq-KR-KrJ" secondAttribute="bottom" id="R9Z-lY-1Ft"/>
-                            <constraint firstItem="JBq-KR-KrJ" firstAttribute="centerX" secondItem="N6k-I1-qtP" secondAttribute="centerX" id="xrW-Vt-hMt"/>
-                            <constraint firstItem="2o7-aC-bk9" firstAttribute="centerX" secondItem="N6k-I1-qtP" secondAttribute="centerX" id="zfE-kD-OrL"/>
+                            <constraint firstItem="JBq-KR-KrJ" firstAttribute="centerY" secondItem="N6k-I1-qtP" secondAttribute="centerY" id="DGS-M4-538"/>
+                            <constraint firstItem="2o7-aC-bk9" firstAttribute="top" secondItem="JBq-KR-KrJ" secondAttribute="bottom" constant="8" id="K6d-ir-lrd"/>
+                            <constraint firstItem="2o7-aC-bk9" firstAttribute="leading" secondItem="N6k-I1-qtP" secondAttribute="leadingMargin" constant="161" id="N9d-62-Jb0"/>
+                            <constraint firstItem="2o7-aC-bk9" firstAttribute="centerX" secondItem="N6k-I1-qtP" secondAttribute="centerX" id="NET-kS-xbt"/>
+                            <constraint firstItem="JBq-KR-KrJ" firstAttribute="centerX" secondItem="N6k-I1-qtP" secondAttribute="centerX" id="rKa-eV-5Og"/>
                         </constraints>
                     </view>
                     <connections>
@@ -93,6 +93,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3su-nZ-qTz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PLL-o2-MnP">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LME-tP-7jh">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -106,19 +113,17 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3su-nZ-qTz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3su-nZ-qTz" firstAttribute="leading" secondItem="pWK-bA-2tw" secondAttribute="leading" id="2Pv-UH-izA"/>
+                            <constraint firstItem="PLL-o2-MnP" firstAttribute="centerX" secondItem="pWK-bA-2tw" secondAttribute="centerX" id="7Tz-Oc-OBK"/>
                             <constraint firstItem="zYo-0k-QWM" firstAttribute="top" secondItem="3su-nZ-qTz" secondAttribute="bottom" id="Kod-yd-Ql6"/>
                             <constraint firstItem="3su-nZ-qTz" firstAttribute="centerX" secondItem="pWK-bA-2tw" secondAttribute="centerX" id="Vqb-wU-Iy3"/>
                             <constraint firstItem="LME-tP-7jh" firstAttribute="top" secondItem="SU6-3L-Vqd" secondAttribute="bottom" id="Wgx-HB-nyr"/>
                             <constraint firstAttribute="trailing" secondItem="LME-tP-7jh" secondAttribute="trailing" id="cfQ-RN-bzC"/>
                             <constraint firstItem="LME-tP-7jh" firstAttribute="centerX" secondItem="pWK-bA-2tw" secondAttribute="centerX" id="ers-WO-FZu"/>
+                            <constraint firstItem="PLL-o2-MnP" firstAttribute="centerY" secondItem="pWK-bA-2tw" secondAttribute="centerY" id="hQV-Gh-40O"/>
                             <constraint firstItem="LME-tP-7jh" firstAttribute="leading" secondItem="pWK-bA-2tw" secondAttribute="leading" id="iiN-TE-CD9"/>
                             <constraint firstItem="3su-nZ-qTz" firstAttribute="top" secondItem="LME-tP-7jh" secondAttribute="bottom" id="rwa-y2-Epn"/>
                             <constraint firstAttribute="trailing" secondItem="3su-nZ-qTz" secondAttribute="trailing" id="zic-ES-xpI"/>
@@ -127,6 +132,7 @@
                     <navigationItem key="navigationItem" title="Title" id="INY-o7-GHW"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="indicator" destination="PLL-o2-MnP" id="AQE-gJ-pRd"/>
                         <outlet property="navTitle" destination="iyI-T2-Wua" id="SBF-hJ-s1W"/>
                         <outlet property="webView" destination="3su-nZ-qTz" id="hog-qC-RjU"/>
                     </connections>
@@ -137,6 +143,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="200" height="200"/>
+        <image name="launch" width="300" height="91"/>
     </resources>
 </document>

@@ -13,7 +13,6 @@
 		25A0CC171E330D0B000D414A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC161E330D0B000D414A /* AppDelegate.m */; };
 		25A0CC1D1E330D0B000D414A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25A0CC1B1E330D0B000D414A /* Main.storyboard */; };
 		25A0CC1F1E330D0B000D414A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25A0CC1E1E330D0B000D414A /* Assets.xcassets */; };
-		25A0CC221E330D0B000D414A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25A0CC201E330D0B000D414A /* LaunchScreen.storyboard */; };
 		25A0CC2D1E330D0B000D414A /* discoveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC2C1E330D0B000D414A /* discoveryTests.m */; };
 		25A0CC381E330D0B000D414A /* discoveryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC371E330D0B000D414A /* discoveryUITests.m */; };
 		25A0CC471E330EFB000D414A /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC461E330EFB000D414A /* TableViewController.m */; };
@@ -54,7 +53,6 @@
 		25A0CC161E330D0B000D414A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		25A0CC1C1E330D0B000D414A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25A0CC1E1E330D0B000D414A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		25A0CC211E330D0B000D414A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25A0CC231E330D0B000D414A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25A0CC281E330D0B000D414A /* discoveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = discoveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A0CC2C1E330D0B000D414A /* discoveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = discoveryTests.m; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 			children = (
 				25A0CC1B1E330D0B000D414A /* Main.storyboard */,
 				25A0CC1E1E330D0B000D414A /* Assets.xcassets */,
-				25A0CC201E330D0B000D414A /* LaunchScreen.storyboard */,
 				25A0CC151E330D0B000D414A /* AppDelegate.h */,
 				25A0CC161E330D0B000D414A /* AppDelegate.m */,
 				25A0CC231E330D0B000D414A /* Info.plist */,
@@ -367,7 +364,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25A0CC221E330D0B000D414A /* LaunchScreen.storyboard in Resources */,
 				25A0CC1F1E330D0B000D414A /* Assets.xcassets in Resources */,
 				25A0CC1D1E330D0B000D414A /* Main.storyboard in Resources */,
 			);
@@ -492,14 +488,6 @@
 				25A0CC1C1E330D0B000D414A /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		25A0CC201E330D0B000D414A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				25A0CC211E330D0B000D414A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

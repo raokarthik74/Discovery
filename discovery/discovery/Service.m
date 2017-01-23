@@ -12,11 +12,13 @@
 @implementation Service
 
 @synthesize serviceDelegete;
+static int const size = 15;
 
 -(void)getAllNearbyEvents{
     NetworkConfig* networkConfig = [[NetworkConfig alloc]init];
     networkConfig.delegate = self;
-    [networkConfig doGet:@"https://app.ticketmaster.com/discovery/v2/events.json?size=15&apikey=J59NpU6LWbdYZETInu5F9UXB6boP2vcS"];
+    
+    [networkConfig doGet:[NSString stringWithFormat:@"https://app.ticketmaster.com/discovery/v2/events.json?size=%d&apikey=J59NpU6LWbdYZETInu5F9UXB6boP2vcS", size]];
 }
 
 
@@ -27,7 +29,7 @@
                                                                options:kNilOptions
                                                                  error:NULL];
     
-    for (int i=0; i<15; i++) {
+    for (int i=0; i<size; i++) {
         NSDictionary* dictObject = [mainDictObject objectForKey:@"_embedded"];
         NSArray *dataArray = [dictObject objectForKey:@"events"];
         dictObject = [dataArray objectAtIndex:i];
@@ -37,10 +39,6 @@
         NSLog(@"url %@", url);
         name = [name stringByAppendingString:@" "];
         name = [name stringByAppendingString:[dictObject objectForKey:@"type"]];
-//        name = [name stringByAppendingString:@" on "];
-//        NSDictionary *dictTime = [dictObject objectForKey:@"dates"];
-//        dictTime =  [dictTime objectForKey:@"start"];
-//        name = [name stringByAppendingString:[dictTime objectForKey:@"localDate"]];
         dataArray = [dictObject objectForKey:@"images"];
         NSDictionary* imageDictionary = [dataArray objectAtIndex:4];
         NSString* imageUrl = [imageDictionary objectForKey:@"url"];
