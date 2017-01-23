@@ -6,6 +6,7 @@ simple iOS app to demonstrate MVC design pattern. This design further improves M
 **Protocols**
 
 The protocols which enable callback
+
 > **DidGetResponse :**  Service Delegates NetworkConfig to handle GET and POST requests
 > **DidGetResponseFromService :**  ViewController delegates Service to pass the required data to network and handle the response from network
 
@@ -13,6 +14,7 @@ The protocols which enable callback
 **NetworkConfig**
 
 Network files that perform GET and POST requests
+
 > **doGet :**  performs GET request
 > **doPost :** performs POST request
 
