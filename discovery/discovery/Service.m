@@ -17,7 +17,6 @@ static int const size = 15;
 -(void)getAllNearbyEvents{
     NetworkConfig* networkConfig = [[NetworkConfig alloc]init];
     networkConfig.delegate = self;
-    
     [networkConfig doGet:[NSString stringWithFormat:@"https://app.ticketmaster.com/discovery/v2/events.json?size=%d&apikey=J59NpU6LWbdYZETInu5F9UXB6boP2vcS", size]];
 }
 
