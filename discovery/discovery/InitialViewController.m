@@ -29,11 +29,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 -(void)didGetResponseFromService:(EventModel*)eventModel{
     self.eventModel = eventModel;
     Event* event = [eventModel eventAtIndex:0];
     NSLog(@"Event Title %@", event.eventTitle);
     [self performSegueWithIdentifier:@"tableViewSegue" sender:self];
+}
+
+-(void)noResponse{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"I'm sorry, but something went wrong. Please try back in sometime" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action){}];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

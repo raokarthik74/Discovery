@@ -47,4 +47,8 @@ static int const size = 15;
         [serviceDelegete didGetResponseFromService:eventModel];
 }
 
+-(void)didNotGetResponse{
+    [serviceDelegete noResponse];
+}
+
 @end

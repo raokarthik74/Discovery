@@ -11,5 +11,6 @@
 @protocol DidGetResponse <NSObject>
 
 -(void)didGetResponse:(NSData*)data;
+-(void)didNotGetResponse;
 
 @end

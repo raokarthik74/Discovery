@@ -37,19 +37,18 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    TableViewCell *cell = (TableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (cell == nil)
+    {
+        [tableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    }
     Event* event = [[Event alloc]init];
     event = [self.eventModel eventAtIndex:indexPath.row];
-    cell.textLabel.text = event.eventTitle;
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:event.pictureUrl]
+    cell.title.text = event.eventTitle;
+        [cell.image sd_setImageWithURL:[NSURL URLWithString:event.pictureUrl]
                  placeholderImage:[UIImage imageNamed:@"ticket.jpg"]
                           options:SDWebImageRefreshCached];
-    CGSize itemSize = CGSizeMake(100, 56);
-    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
-    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
-    [cell.imageView.image drawInRect:imageRect];
-    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
     return cell;
 }
 

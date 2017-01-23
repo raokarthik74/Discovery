@@ -10,6 +10,7 @@
 #import "EventModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "WebViewController.h"
+#import "TableViewCell.h"
 
 @interface TableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 

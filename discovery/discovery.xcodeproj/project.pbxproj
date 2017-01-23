@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2533B00B1E35657C0074D628 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B00A1E35657C0074D628 /* InitialViewController.m */; };
 		2533B00E1E356F590074D628 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B00D1E356F590074D628 /* WebViewController.m */; };
+		2533B01A1E35DC6E0074D628 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2533B0181E35DC6E0074D628 /* TableViewCell.m */; };
+		2533B01B1E35DC6E0074D628 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2533B0191E35DC6E0074D628 /* TableViewCell.xib */; };
 		25A0CC141E330D0B000D414A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC131E330D0B000D414A /* main.m */; };
 		25A0CC171E330D0B000D414A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CC161E330D0B000D414A /* AppDelegate.m */; };
 		25A0CC1D1E330D0B000D414A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25A0CC1B1E330D0B000D414A /* Main.storyboard */; };
@@ -47,6 +49,9 @@
 		2533B00A1E35657C0074D628 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		2533B00C1E356F590074D628 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		2533B00D1E356F590074D628 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		2533B0171E35DC6E0074D628 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		2533B0181E35DC6E0074D628 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		2533B0191E35DC6E0074D628 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell.xib; path = discovery/TableViewCell.xib; sourceTree = "<group>"; };
 		25A0CC0F1E330D0B000D414A /* discovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = discovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A0CC131E330D0B000D414A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25A0CC151E330D0B000D414A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -176,6 +181,7 @@
 		25A0CC4B1E333B34000D414A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2533B0191E35DC6E0074D628 /* TableViewCell.xib */,
 			);
 			name = View;
 			path = ..;
@@ -197,6 +203,8 @@
 			children = (
 				2533B00C1E356F590074D628 /* WebViewController.h */,
 				2533B00D1E356F590074D628 /* WebViewController.m */,
+				2533B0171E35DC6E0074D628 /* TableViewCell.h */,
+				2533B0181E35DC6E0074D628 /* TableViewCell.m */,
 				25A0CC451E330EFB000D414A /* TableViewController.h */,
 				25A0CC461E330EFB000D414A /* TableViewController.m */,
 				2533B0091E35657C0074D628 /* InitialViewController.h */,
@@ -365,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25A0CC1F1E330D0B000D414A /* Assets.xcassets in Resources */,
+				2533B01B1E35DC6E0074D628 /* TableViewCell.xib in Resources */,
 				25A0CC1D1E330D0B000D414A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +450,7 @@
 				25A0CC5A1E342886000D414A /* Event.m in Sources */,
 				25A0CC171E330D0B000D414A /* AppDelegate.m in Sources */,
 				25A0CC4A1E3339A7000D414A /* Service.m in Sources */,
+				2533B01A1E35DC6E0074D628 /* TableViewCell.m in Sources */,
 				2533B00B1E35657C0074D628 /* InitialViewController.m in Sources */,
 				2533B00E1E356F590074D628 /* WebViewController.m in Sources */,
 				25A0CC531E334166000D414A /* NetworkConfig.m in Sources */,

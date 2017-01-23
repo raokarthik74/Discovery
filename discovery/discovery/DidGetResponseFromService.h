@@ -11,5 +11,6 @@
 @protocol DidGetResponseFromService <NSObject>
 
 -(void)didGetResponseFromService:(EventModel*)eventModel;
+-(void)noResponse;
 
 @end
